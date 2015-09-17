@@ -1,0 +1,31 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+ <form action="" method=post class="form-horizontal">
+
+    <div class="control-group">
+
+        <div class="controls">
+            <h2>Enter Url from googel play </h2>
+
+          <input type="text" id="url_my" name="url_my" class="input-xlarge "
+            placeholder="https://play.google.com/store/apps/details?id=" value="{{ request.form.url_my }}"
+            required style="width: 500px">
+        </div>
+        <!--<div class="controls">-->
+            <!--<h2>Enter Link download </h2>-->
+
+          <!--<input type="text" id="link_downland" name="link_downland" class="input-xlarge "-->
+             <!--value="{{ request.form.link_downland }}"-->
+            <!--required style="width: 500px">-->
+        <!--</div>-->
+    </div>
+     <div class="control-group">
+        <div class="controls">
+          <button type="submit" class="btn btn-success">submit</button>
+        </div>
+         </div>
+
+<!--{{form.url_my(rows=0,cols=50)}}-->
+
+</form>
+{% endblock %}

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--{% for comment in comments %}-->
+<style >
+
+.gallerycontainer{
+position: inherit;
+/*Add a height attribute and set to largest image's height to prevent overlaying*/
+}
+
+.thumbnail img{
+border: 1px solid white;
+margin: 0 5px 5px 0;
+}
+
+.thumbnail:hover{
+background-color: transparent;
+}
+
+/*.thumbnail:hover img{*/
+/*border: 1px solid blue;*/
+/*}*/
+
+.thumbnail span{ /*CSS for enlarged image*/
+position: absolute;
+background-color: lightyellow;
+padding: 0px;
+left: -1000px;
+border: 1px dashed gray;
+visibility: hidden;
+color: black;
+text-decoration: none;
+}
+
+.thumbnail span img{ /*CSS for enlarged image*/
+border-width: 0;
+padding: 0px;
+}
+
+.thumbnail:hover span{ /*CSS for enlarged image*/
+visibility: visible;
+top: 0;
+left: -1px; /*position where enlarged image should offset horizontally */
+z-index: 50;
+}
+
+</style>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+<title>{{comment.name}}</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../static/css2/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../static/css/portfolio-item.css" rel="stylesheet">
+
+
+
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <i><p class="navbar-brand">Kosher apps</p></i>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/">Back</a>
+                    </li>
+                    <li>
+                        <a href="/#about">About</a>
+                    </li>
+                    <li>
+                        <a href="/#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Portfolio Item Heading -->
+        <div class="row">
+            <div class="col-lg-6">
+                <i><h1 class="page-header">{{comment.name}}
+                    <form action="" method="post">
+                       <input type="hidden" id="download_app_name" name="download_app_name" value="{{comment.name}}" >
+                       <input type="hidden" id="download_app_id" name="download_app_id" value="{{comment.id_google_play }}" >
+
+    </div>
+     <div class="control-group">
+        <div class="controls">
+          <button type="submit" class="btn btn-success">dwonload</button>
+
+        </div>
+                        </form>
+         </div>
+
+
+
+                </h1></i>
+            </div>
+
+
+            <!--<div class="col-lg-6 col-xs-1">-->
+                <!--<img3 src="{{comment.Img1}}" style=" max-width: 20%;">-->
+            <!--</div>-->
+
+        </div>
+        <!-- /.row -->
+
+        <!-- Portfolio Item Row -->
+        <div class="row">
+        {% if comment.Url_video != None %}
+            <div class="col-md-12">
+                <iframe style="max-width: 100%" src="{{comment.Url_video}}" href="" frameborder="0" allowfullscreen></iframe>
+
+                <img src="{{comment.Img1}}" style=" max-width: 30%; " align="right">
+
+            </div>
+            {% else %}
+            <div class="col-lg-6 ">
+                <img src="{{comment.Img1}}" style=" max-width: 20%;">
+            </div>
+        </div>
+        {% endif %}
+            <div class="row">
+            <div class="col-md-6">
+                <h3><i>Description</i></h3>
+                <p>{{comment.Description}}</p>
+
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <!-- Related Projects Row -->
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h3 class="page-header"><i>Gallery</i></h3>
+            </div>
+            <hr>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+
+                <!--<div class="gallerycontainer">-->
+                    <div class="col-xs-4">
+                <a class="thumbnail" href="#"><img src="{{comment.Img2}}" width="80%" height="80" border="0" ><span><img src="{{comment.Img2}}" width="150%" height="150%" /></span></a>
+                </div>
+                    <div class="col-xs-4">
+                <a class="thumbnail" href="#"><img src="{{comment.Img2}}" width="80%" height="80%" border="0" ><span><img src="{{comment.Img2}}" width="150%" height="150%" /></span></a>
+                    </div>
+                    <div class="col-xs-4">
+                <a class="thumbnail" href="#"><img src="{{comment.Img2}}" width="80%" height="80%" border="0" ><span><img src="{{comment.Img2}}" width="150%" height="150%" /></span></a>
+                    <!--</div>-->
+<!--<a class="thumbnail" href="#thumb"><img src="images 2.jpg" width="100px" height="70px" border="0" /><span><img src="images 2.jpg" /><br /></span></a>-->
+
+        </div>
+            </div>
+                </div>
+
+
+        </div>
+
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <p>&copy; <i>Kosher Apps </i></p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../static/js/bootstrap.min.js"></script>
+
+</body>
+<!--{% endfor %}-->
+
+</html>

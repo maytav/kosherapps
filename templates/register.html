@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{% extends "admin/master.html" %}
+{% block body %}
+ <!--{%- for category, message in get_flashed_messages(with_categories=true) %}-->
+    <!--{{message}}-->
+<!--{{category}}-->
+    <!--{%- endfor %}-->
+<!--{%for message in get_flashed_messages() %}-->
+    <!--<div class="flash" style="background-color:#FBB0B0;padding: 10px;-->
+  <!--width: 400px; ">{{message}}</div>-->
+    <!--{% endfor %}-->
+
+  <form action="" method=post class="form-horizontal">
+    <h2>Sign up new user</h2>
+    <div class="control-group">
+        <div class="controls">
+          <input type="text" id="username" name="username" class="input-xlarge"
+            placeholder="Enter Username" value="{{ request.form.username }}"
+            required>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+          <input type="password" id="password" name="password" class="input-xlarge"
+            placeholder="Enter Password" value="{{ request.form.password }}"
+            required>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+          <input type="email" id="email" name="email" class="input-xlarge"
+            placeholder="Enter Email" value="{{ request.form.email }}"
+            required>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+          <button type="submit" class="btn btn-success">Signup</button>
+        </div>
+    </div>
+
+      </form>
+<!--{{form.username.errors}}-->
+
+  <!--<div class="flash">{{ message }}</div>-->
+<!--{%if form.username.errors%}-->
+<!--{% for message in form.username.errors %}-->
+  <!--<div class="alert alert-danger">{{ message }}</div>-->
+
+<!--{% endfor %}-->
+
+<!--{%endif%}-->
+
+<!--<div class="alert alert-success">{{ message }}</div>-->
+
+
+
+{% endblock %}
+
+<!--<div class="alert alert-danger">-->
+        <!--{{ message }}-->
+    </div>
+</body>
+</html>

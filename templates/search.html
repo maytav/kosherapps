@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.4.js"
+    type="text/javascipt"></script>
+    <script type="text/javascript">
+ $(document).ready(function () {
+  $("#btnToogle").click(function () {
+    $("#content").toggle('fast');
+  });
+});
+</script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <title>koshr store</title>
+
+</head>
+<body>
+
+    <div style="text-align: center;">
+    <img src="{{ url_for('static', filename='images.png') }}"width="500" height="150">
+        <span style="text-decoration: underline;"><h1 id="title-kosher" >Kosher apps</h1></span>
+    <hr>
+        <form action="{{url_for('search')}}" method="post">
+    Search :
+    <input type="text" name="search" value="{{ request.form.search}}">
+            <div class="actions"> <input type="submit" value="Search"></div>
+            </form>
+        <hr>
+        {% for comment in comments %}
+        <div class="name">
+
+            <a href="{{comment.Link}}">
+                <img id="app-img" src="{{comment.Img}}">
+            </a>
+            <div style="background-color:White; color:black; padding:10px;">
+                <h3>{{comment.name}}</h3>
+                <!--<input id="btnToogle" type="button" value="Toggle" />-->
+                <!--<div id="content">-->
+                <!--<p>{{comment.Description}}">Read More</p>-->
+                    <!--</div>-->
+                <!--<button class="read-more-btn"> Read more </button>-->
+                    </div>
+                <!--<p>{{comment.Description}}</p>-->
+
+                </div>
+
+
+
+    </div></div>
+{% endfor %}
+
+
+</body>
+</html>

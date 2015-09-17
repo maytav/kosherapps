@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h3 class="text-muted"><a href="{{ url_for('show_all') }}">Comments - Flask SQLAlchemy example</a></h3>
+      </div>
+      <hr/>
+      {%- for category, message in get_flashed_messages(with_categories=true) %}
+      <div class="alert alert-success">
+        {{ message }}
+      </div>
+      {%- endfor %}
+
+      <!--<h3>Comments (<a href="{{ url_for('new') }}">Add comment</a>)</h3>-->
+      <table class="table">
+  <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>PEGI</th>
+            <th>Install</th>
+            <!--<th>Link</th>-->
+          </tr>
+	</thead>
+	<tbody>
+          {% for comment in comments %}
+          <tr>
+            <td>{{ comment.name }}</td>
+            <td></td>
+            <td>{{ comment.PEGI }}</td>
+            <td><a href="{{comment.Link}}"> <img  src="{{ comment.Img }}" width="100" height="100"></a></td>
+            <!--<td>{{comment.Link}}</td>-->
+            <td></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

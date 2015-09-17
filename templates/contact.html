@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <meta charset="UTF-8">
+    <title>sadasdsa</title>
+    <link rel="stylesheet" href="../static/css/main.css">
+</head>
+<body>
+
+
+
+{% block content %}
+  <h2>Contact</h2>
+    <!--{%for message in get_flashed_messages() %}-->
+    <!--<div class="flash" style="background-color:#FBB0B0;padding: 10px;-->
+  <!--width: 400px; ">{{message}}</div>-->
+    <!--{% endfor %}-->
+{% for message in form.name.errors %}
+  <div class="flash">{{ message }}</div>
+{% endfor %}
+
+{% for message in form.email.errors %}
+  <div class="flash">{{ message }}</div>
+{% endfor %}
+
+{% for message in form.subject.errors %}
+  <div class="flash">{{ message }}</div>
+{% endfor %}
+
+{% for message in form.message.errors %}
+  <div class="flash">{{ message }}</div>
+{% endfor %}
+  <form action="{{ url_for('contact') }}" method=post>
+    {{ form.hidden_tag() if form.hidden_tag }}
+ 
+    {{ form.name.label }}
+    {{ form.name }}
+ 
+    {{ form.email.label }}
+    {{ form.email }}
+ 
+    {{ form.subject.label }}
+    {{ form.subject }}
+ 
+    {{ form.message.label }}
+    {{ form.message }}
+ 
+    {{ form.submit }}
+  </form>
+{% endblock %}
+</body>

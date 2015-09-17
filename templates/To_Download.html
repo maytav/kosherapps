@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+{% for comment in comments %}
+<title>{{comment.name}}</title>
+
+<style>
+body {
+    font-family:Verdana,sans-serif;font-size:0.8em;
+
+}
+div#header,div#footer,div#content,div#post {
+    border:1px solid grey;
+    margin:20px;
+    margin-bottom:15px;
+    padding:10px;
+    background-color:white;
+    overflow: hidden;
+}
+div#header,div#footer {
+    color:white;background-color:#444;margin-bottom:15px;
+}
+#header > div{float: right;}
+
+div#content {
+    background-color:#ddd;
+}
+div#menu ul  {
+    margin:0;padding:0;
+}
+#menu ul li {
+    display:inline; margin:5px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="header">
+   <h1><i>Kosher Apps Download </i></h1>
+
+</div>
+
+
+
+<div id="content">
+<h2>{{comment.name}}</h2>
+
+
+<div id="post">
+    {% if comment.Url_video != None %}
+   <div id="menu">
+       <!--<li>-->
+             <!--<iframe width=45% height=30%-->
+                <a class="ytp-youtube-button ytp-button yt-uix-sessionlink" tabindex="43"
+                   target="_blank" data-sessionlink="feature=player-button" href=""></a>
+
+                <iframe width=45% height=30% src="{{comment.Url_video}}" href="" frameborder="0" allowfullscreen></iframe>
+
+            <!--</iframe>-->
+
+<img src="{{comment.Img2}}" style=" max-width: 100%;">
+<img src="{{comment.Img3}}" style=" max-width: 100%;">
+    <hr>{% endif %}
+       <!--</li>-->
+    </div>
+<!--</div>-->
+<!--<div id="post">-->
+<!--<h2>News Article</h2>-->
+<p>{{comment.Description}}</p>
+
+</div>
+
+
+<!--</div>-->
+<a href="{{comment.Link_downland}}"><img src="{{url_for('static', filename='images 2.png')}}" style=" height: 35px; width: 120px;"></a>
+
+</div>
+
+<div id="footer">
+<p>&copy;<i>Kosher Apps </i></p>
+</div>
+
+</body>
+{% endfor %}
+</html>
